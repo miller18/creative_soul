@@ -3,6 +3,8 @@ ruby '2.0.0'
 #ruby-gemset=creative_soul
 
 gem 'rails', '4.0.8'
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'sprockets', '2.11.0'
 gem 'pg', '0.15.1'
 
 group :development, :test do
