@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 def full_title(page_title)
   base_title = "Creative Soul Music School"
   if page_title.empty?
