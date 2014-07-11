@@ -19,6 +19,12 @@
       <jdbc-url>jdbc:postgresql:db/production</jdbc-url>
       <libraries />
     </data-source>
+    <data-source source="LOCAL" name="Rails creative_soul: cucumber" uuid="ae380492-f7aa-4f99-bbab-884eb6fe6164">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/test</jdbc-url>
+      <libraries />
+    </data-source>
   </component>
 </project>
 
