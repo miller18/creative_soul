@@ -14,6 +14,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:schedules) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -110,6 +111,31 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "schedule associations" do
+
+    before { @user.save }
+    let!(:older_schedule) do
+      FactoryGirl.create(:schedule, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_schedule) do
+      FactoryGirl.create(:schedule, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right schedules in the right order" do
+      expect(@user.schedules.to_a).to eq [newer_schedule, older_schedule]
+    end
+
+    it "should destroy associated schedules" do
+      schedules = @user.schedules.to_a
+      @user.destroy
+      expect(schedules).not_to be_empty
+      schedules.each do |schedule|
+        expect(Schedule.where(id: schedule.id)).to be_empty
+      end
+    end
+
   end
 
 end

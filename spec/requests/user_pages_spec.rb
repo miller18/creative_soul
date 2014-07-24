@@ -53,10 +53,39 @@ describe "User pages" do
 
   describe "profile pages" do
     let(:user) { FactoryGirl.create(:user) }
+    let! (:s1) { FactoryGirl.create(:schedule,
+                                    user: user,
+                                    class_date: "2014-07-17",
+                                    class_time: "13:20:00.000",
+                                    class_duration: 1,
+                                    student: "Foo Student",
+                                    class_type: "Private") }
+    let! (:s2) { FactoryGirl.create(:schedule,
+                                    user: user,
+                                    class_date: "2014-07-17",
+                                    class_time: "13:20:00.000",
+                                    class_duration: 1,
+                                    student: "Bar Student",
+                                    class_type: "Private") }
+
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    describe "schedules" do
+      it { should have_content(s1.class_date) }
+      it { should have_content(s1.class_time) }
+      it { should have_content(s1.class_duration) }
+      it { should have_content(s1.student) }
+      it { should have_content(s1.class_type) }
+      it { should have_content(s2.class_date) }
+      it { should have_content(s2.class_time) }
+      it { should have_content(s2.class_duration) }
+      it { should have_content(s2.student) }
+      it { should have_content(s2.class_type) }
+      it { should have_content(user.schedules.count) }
+    end
   end
 
   describe "signup page" do

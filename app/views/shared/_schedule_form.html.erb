@@ -1,0 +1,21 @@
+<%= form_for(@schedule) do |f| %>
+    <%= render'shared/error_messages', object: f.object %>
+        <%= f.label :class_date %>
+        <%= f.date_field :class_date  %>
+
+        <%= f.label :class_time %>
+        <%= f.time_field :class_time  %>
+
+        <%= f.label :class_duration %>
+        <%= f.number_field(:class_duration, in: 1.0..3.0, step: 0.25)  %>
+
+        <%= f.label :student %>
+        <%= f.text_field :student %>
+
+        <%= f.label :class_type %>
+        <%= f.text_field :class_type %>
+
+
+
+   <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+<% end %>

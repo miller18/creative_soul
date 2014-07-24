@@ -1,3 +1,4 @@
+
 @import "bootstrap";
 
 /* mixins, variables, etc. */
@@ -61,7 +62,6 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
 
 /* header */
 
@@ -173,6 +173,10 @@ input {
   @extend .error;
 }
 
+#new_schedule select {
+  width: auto;
+}
+
 /* Users index */
 
 .users {
@@ -186,4 +190,11 @@ input {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+//Tables
+
+table.schedules {
+  width: 100%;
+  text-align: center;
 }

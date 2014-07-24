@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711143149) do
+ActiveRecord::Schema.define(version: 20140711213947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "schedules", force: true do |t|
+    t.date     "class_date"
+    t.time     "class_time"
+    t.integer  "class_duration"
+    t.string   "student"
+    t.integer  "user_id"
+    t.string   "class_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schedules", ["user_id", "created_at"], name: "index_schedules_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -24,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140711143149) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.string   "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
