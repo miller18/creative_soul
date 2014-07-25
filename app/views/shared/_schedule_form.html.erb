@@ -1,21 +1,59 @@
+<div class="row schedule-form">
+  <div class=" large-12 panel">
 <%= form_for(@schedule) do |f| %>
     <%= render'shared/error_messages', object: f.object %>
-        <%= f.label :class_date %>
-        <%= f.date_field :class_date  %>
 
-        <%= f.label :class_time %>
-        <%= f.time_field :class_time  %>
+      <div class="row">
+        <div class="small-4 columns">
+          <%= f.label :class_date, class: "right inline" %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.date_field :class_date  %>
+        </div>
+      </div>
 
-        <%= f.label :class_duration %>
-        <%= f.number_field(:class_duration, in: 1.0..3.0, step: 0.25)  %>
+      <div class="row">
+        <div class="small-4 columns">
+          <%= f.label :class_time, class: "right inline" %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.time_field :class_time  %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 columns">
+          <%= f.label :class_duration, class: "right inline" %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.number_field(:class_duration, in: 1.0..3.0, step: 0.25)  %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 columns">
+          <%= f.label :student, class: "right inline" %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.text_field :student %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 columns">
+          <%= f.label :class_type, class: "right inline" %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.text_field :class_type %>
+        </div>
+      </div>
 
-        <%= f.label :student %>
-        <%= f.text_field :student %>
-
-        <%= f.label :class_type %>
-        <%= f.text_field :class_type %>
+      <div class="row text-center">
+        <%= f.submit "Create", class: "button round" %>
+      </div>
 
 
 
-   <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+
+
+
 <% end %>
+  </div>
+</div>

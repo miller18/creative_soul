@@ -1,7 +1,7 @@
 <% if signed_in? %>
 
     <div class="row">
-      <aside class="span4">
+      <aside class="large-4 columns">
         <section>
           <%= render 'shared/user_info' %>
         </section>
@@ -9,18 +9,25 @@
           <%= render 'shared/schedule_form' %>
         </section>
       </aside>
+      <div class="large-7 large-offset-1 columns panel">
+        <p>Schedules</p>
+      </div>
     </div>
 
 <% else %>
 
-    <div class="center hero-unit">
-      <h1>Creative Soul</h1>
+    <div class="row">
+      <div class="large-9 large-centered columns">
+        <div class="panel text-center">
+              <h1>Creative Soul</h1>
 
-      <h2>
-        This is the testing home page for the Creative Soul application
-      </h2>
+              <h4>
+                This is the testing home page for the Creative Soul application
+              </h4>
 
-      <%= link_to "Sign up now!" , signup_path, class: "btn btn-large btn-primary" %>
+              <%= link_to "Sign up now!" , signup_path, class: "button round" %>
+          </div>
+      </div>
     </div>
 
 <% end %>

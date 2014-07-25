@@ -1,33 +1,35 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "creative soul", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home",    root_path %></li>
-          <li><%= link_to "Help",    help_path %></li>
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "creative soul", root_path, id: "logo" %></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
 
-          <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign Out", signout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Sign In", signin_path %></li>
-          <% end %>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><%= link_to "Home",    root_path %></li>
+      <li><%= link_to "Help",    help_path %></li>
 
+      <% if signed_in? %>
+      <li><%= link_to "Users", users_path %></li>
+
+      <li class="has-dropdown">
+        <a href="#">Account</a>
+        <ul class="dropdown">
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
         </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+      </li>
+      <% else %>
+          <li><%= link_to "Sign In", signin_path %></li>
+      <% end %>
+
+    </ul>
+
+
+  </section>
+</nav>

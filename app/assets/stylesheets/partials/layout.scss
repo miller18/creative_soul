@@ -1,0 +1,57 @@
+/* General Styles */
+
+.user-info {
+  margin-bottom: rem-calc(10);
+  h1 {
+    font-size: rem-calc(20);
+    margin-bottom: rem-calc(5);
+  }
+  h4 {
+    font-size: rem-calc(14);
+    margin-bottom: rem-calc(5);
+  }
+  h5 {
+    font-size: rem-calc(12);
+    margin-bottom: rem-calc(5);
+  }
+}
+
+
+table.users {
+  width: 100%;
+}
+
+.user-page {
+  img.gravatar {
+    width: 100%;
+  }
+  table.schedules {
+    width: 100%;
+  }
+
+}
+
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+  @include panel();
+}
+
+footer {
+  margin-top: rem-calc(10);
+  padding: rem-calc(5) 0;
+  background-color: $primary-5;
+  .copyright {
+    margin-bottom: 0;
+  }
+  .inline-list {
+    margin-bottom: 0;
+  }
+}

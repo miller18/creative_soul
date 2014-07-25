@@ -3,12 +3,12 @@ ruby '2.0.0'
 #ruby-gemset=creative_soul
 
 gem 'rails', '4.0.8'
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'foundation-rails'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'will_paginate-foundation'
 gem 'pg', '0.15.1'
 
 group :development, :test do
@@ -28,8 +28,9 @@ group :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
-gem 'sass-rails', '4.0.1'
-gem 'sprockets-rails', '2.0.0'
+gem 'sass-rails'
+gem "compass-rails", '~> 2.0.alpha.0'
+gem 'sprockets-rails'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
